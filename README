@@ -1,0 +1,24 @@
+This service has two endpoints, POST /receipts/process and GET /receipts/{id}/points.
+
+HOW IT WORKS?
+
+The first endpoint (POST /receipts/process) receives JSON that contains the structure of the Receipt entity.
+Once the controller receives the request, the fields are validated using the @Valid Spring Boot annotation.
+The database is then created with the relations between the 'items' and 'receipts' tables using the @Column
+and @mappedBy Spring Data annotations.
+
+Then, the service method named 'receiptProcess' is called, sending the receipt object to it to be handled and inserted
+into the database with a new UUID generated automatically by the Spring Data annotations.
+At this moment, we already have inserted with an unique identifier the receipt and the items that come within
+the receipt into the database.
+
+
+The second endpoint (GET /receipts/{id}/points) receives the receipt ID and is sent to the service method named "points",
+which searches the database to check if the ID exists. If the ID does not exist, it returns an HTTP status code 404.
+On the other hand, if the ID exists, the business rules are applied to the receipt's fields to calculate the earned points
+
+
+
+
+
+
