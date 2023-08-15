@@ -1,3 +1,11 @@
+===================GITHUB LINK======================
+https://github.com/LuisAngel1795/Receipt-processor
+====================================================
+
+===================DOCKERHUB LINK====================================
+https://hub.docker.com/repository/docker/luissilva1704/fetch-challenge
+======================================================================
+
 This service has two endpoints, POST /receipts/process and GET /receipts/{id}/points.
 
 HOW IT WORKS?
@@ -16,6 +24,22 @@ the receipt into the database.
 The second endpoint (GET /receipts/{id}/points) receives the receipt ID and is sent to the service method named "points",
 which searches the database to check if the ID exists. If the ID does not exist, it returns an HTTP status code 404.
 On the other hand, if the ID exists, the business rules are applied to the receipt's fields to calculate the earned points
+
+
+
+HOW TO RUN IT LOCALLY?
+
+No matter the OS, Docker needs to be installed..
+After installing Docker on the OS, execute the following commands (as a superuser on macOS or any Linux distribution):
+
+1.- docker pull luissilva1704/fetch-challenge:latest
+2.- docker run -p8080:8080 -d luissilva1704/fetch-challenge:latest
+
+With the Postman Collection, send petitions to the service.
+
+
+
+
 
 
 
